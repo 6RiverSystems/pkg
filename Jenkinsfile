@@ -15,7 +15,7 @@ parallel(
                 scmVars = checkout scm
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'artifactory_apt',
                         usernameVariable: 'ARTIFACTORY_USERNAME', passwordVariable: 'ARTIFACTORY_PASSWORD']]) {
-                    customImage = docker.build("gcr.io/plasma-column-128721/ros-builder:arm64", " --file arm64/Dockerfile --build-arg ARTIFACTORY_USERNAME=${env.ARTIFACTORY_USERNAME} --build-arg ARTIFACTORY_PASSWORD=${env.ARTIFACTORY_PASSWORD} pkg_builder" )
+                    customImage = docker.build("gcr.io/plasma-column-128721/ros-builder:arm64", " --file arm64/Dockerfile --build-arg ARTIFACTORY_USERNAME=${env.ARTIFACTORY_USERNAME} --build-arg ARTIFACTORY_PASSWORD=${env.ARTIFACTORY_PASSWORD} ." )
                 }  
             }
         }
