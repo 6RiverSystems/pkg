@@ -4,4 +4,4 @@ cd examples/express || exit 1
 
 npm install 
 
-pkg --build .
+node /builder/lib-es5/bin.js --build .
