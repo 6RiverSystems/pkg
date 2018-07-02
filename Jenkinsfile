@@ -15,8 +15,20 @@ parallel(
                 scmVars = checkout scm
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'artifactory_apt',
                         usernameVariable: 'ARTIFACTORY_USERNAME', passwordVariable: 'ARTIFACTORY_PASSWORD']]) {
-                    customImage = docker.build("gcr.io/plasma-column-128721/ros-builder:arm64", " --file arm64/Dockerfile --build-arg ARTIFACTORY_USERNAME=${env.ARTIFACTORY_USERNAME} --build-arg ARTIFACTORY_PASSWORD=${env.ARTIFACTORY_PASSWORD} ." )
+                    customImage = docker.build("gcr.io/plasma-column-128721/pkg-builder:arm64", " --file arm64/Dockerfile --build-arg ARTIFACTORY_USERNAME=${env.ARTIFACTORY_USERNAME} --build-arg ARTIFACTORY_PASSWORD=${env.ARTIFACTORY_PASSWORD} ." )
                 }  
+            }
+            
+            stage("Upload Image to Gcloud") {
+              docker.image('arm64v8/docker').inside('-u 0:0 -v /var/run/docker.sock:/var/run/docker.sock') {
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'gcr-login',
+                        usernameVariable: 'GCR_USERNAME', passwordVariable: 'GCR_PASSWORD']]) {
+                  sh '''
+                  docker login -u "${GCR_USERNAME}" -p "${GCR_PASSWORD}"  https://gcr.io
+                  docker push gcr.io/plasma-column-128721/pkg-builder:arm64
+                  '''
+                }
+              }
             }
         }
     }
