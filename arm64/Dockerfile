@@ -3,6 +3,6 @@ FROM arm64v8/node:8.11-stretch
 WORKDIR /builder
 
 COPY . /builder
-RUN npm install
+RUN npm install && npm run-script prepare
 
 RUN arm64/build_node.sh
