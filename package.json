@@ -39,7 +39,7 @@
     "into-stream": "3.1.0",
     "minimist": "1.2.0",
     "multistream": "2.1.1",
-    "pkg-fetch": "git+https://github.com/6RiverSystems/pkg.git",
+    "pkg-fetch": "2.5.6",
     "progress": "2.0.0",
     "resolve": "1.6.0",
     "stream-meter": "1.0.4"
