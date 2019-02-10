@@ -7,7 +7,7 @@ def server = Artifactory.server 'sixriver'
 parallel(
     failFast: true,
     "arm64" : {
-        node('docker && arm64') {
+        node('docker && bigarm64') {
             def customImage = ""
             def scmVars = ""
             
