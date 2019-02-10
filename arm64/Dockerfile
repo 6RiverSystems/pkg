@@ -1,4 +1,4 @@
-FROM arm64v8/node:8.11-stretch
+FROM arm64v8/node:10.4.1-stretch
 
 COPY arm64/qemu/bin/  /usr/bin/
 
