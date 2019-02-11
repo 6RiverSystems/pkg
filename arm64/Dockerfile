@@ -19,5 +19,3 @@ RUN apt-get update &&\
     gem install --no-ri --no-rdoc fpm && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN [ "cross-build-start" ]
