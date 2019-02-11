@@ -9,7 +9,6 @@ RUN npm install && npm run-script prepare
 
 RUN arm64/build_node.sh
 
-
 RUN apt-get update &&\
     apt-get install -y\
     libffi-dev \
