@@ -10,6 +10,7 @@
       "views/**/*"
     ],
     "targets": [
+      "node8-linux-arm64",
       "node10-linux-arm64"
     ]
   }

@@ -33,4 +33,6 @@ done
 VERSION="$(node -p "require('./package.json').version")"
 NAME="$(node -p "require('./package.json').name" |  rev | cut -d/ -f1 | rev)"
 
-fpm -s dir -t deb -n "${NAME}" -v "${VERSION}" ./${PKG_FOLDER}/=/opt/mfp_cli/
+fpm -s dir -t deb -n "${NAME}" -v "${VERSION}" ./${PKG_FOLDER}/=/opt/${NAME}/
+mkdir -p deb_output 
+cp mv *.deb deb_output/ 
