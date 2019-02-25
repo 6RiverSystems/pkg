@@ -43,7 +43,7 @@ for i in "${!ADDR[@]}"; do
     case "$i" in
         0) PKG_NAME="${ADDR[$i]}"
            CHAR="$(echo ${PKG_NAME} | head -c1)"
-           url="${url}/${CHAR}/${PKG_NAME};${MAIN_OPTS}"
+           url="${url}/${CHAR}/${PKG_NAME}/${DEB_NAME};${MAIN_OPTS}"
            ;;
        2) ARCH="$(echo ${ADDR[$i]} | awk -F"." '{ print $1}')"
            url="${url}deb.architecture=${ARCH}"
