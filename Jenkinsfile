@@ -46,7 +46,7 @@ parallel(
             }
             
             stage("Upload Image to Gcloud") {
-              docker.image('arm64v8/docker').inside('-u 0:0 -v /var/run/docker.sock:/var/run/docker.sock') {
+              docker.image('docker').inside('-u 0:0 -v /var/run/docker.sock:/var/run/docker.sock') {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'gcr-login',
                         usernameVariable: 'GCR_USERNAME', passwordVariable: 'GCR_PASSWORD']]) {
                   sh '''
