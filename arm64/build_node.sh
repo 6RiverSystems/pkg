@@ -6,4 +6,4 @@ npm install
 
 export BUILD_CPUS=$(grep -c ^processor /proc/cpuinfo)
 
-node /builder/lib-es5/bin.js --build .
+node /builder/lib-es5/bin.js --targets node8-linux-arm64,node10-linux-arm64  --build .
