@@ -9,9 +9,10 @@ RUN npm install && npm run-script prepare
 
 RUN arm64/build_node.sh
 
-RUN apt-get update &&\
-    apt-get install -y\
+RUN apt-get update && \
+    apt-get install -y \
     libffi-dev \
+    libbluetooth-dev \
     ruby \
     ruby-dev \
     rubygems &&\
