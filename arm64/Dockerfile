@@ -12,6 +12,7 @@ RUN arm64/build_node.sh
 RUN apt-get update &&\
     apt-get install -y\
     libffi-dev \
+    bluez-dev \
     ruby \
     ruby-dev \
     rubygems &&\

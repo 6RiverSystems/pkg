@@ -9,7 +9,7 @@ RUN amd64/build_node.sh
 
 
 FROM node:10-alpine
-RUN apk --no-cache add curl tar ca-certificates ruby-dev ruby-rake ruby-rdoc libffi-dev make bash gcc g++ python bash &&\
+RUN apk --no-cache add curl tar ca-certificates bluez-dev ruby-dev ruby-rake ruby-rdoc libffi-dev make bash gcc g++ python bash &&\
     gem update --no-rdoc --system &&\
     gem install  --no-document fpm etc &&\
     apk del ruby-rdoc
