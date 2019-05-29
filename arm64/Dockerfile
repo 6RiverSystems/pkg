@@ -7,8 +7,6 @@ WORKDIR /builder
 COPY . /builder
 RUN npm install && npm run-script prepare
 
-RUN arm64/build_node.sh
-
 FROM arm64v8/node:10-alpine
 
 COPY arm64/qemu/bin/  /usr/bin/
