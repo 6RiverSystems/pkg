@@ -5,7 +5,7 @@ WORKDIR /builder
 COPY . /builder
 RUN npm install && npm run-script prepare
 
-RUN ./build_node.sh
+RUN amd64/build-node.sh
 
 FROM node:10-alpine
 RUN apk --no-cache add curl tar ca-certificates bluez-dev ruby-dev ruby-rake ruby-rdoc libffi-dev make bash gcc g++ python bash &&\
