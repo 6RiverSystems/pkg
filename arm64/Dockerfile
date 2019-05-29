@@ -7,7 +7,7 @@ WORKDIR /builder
 COPY . /builder
 RUN npm install && npm run-script prepare
 
-RUN arm64/build_node.sh
+RUN ./build_node.sh
 
 RUN mkdir -p ~/.pkg-cache/ && wget https://github.com/robertsLando/pkg-binaries/raw/master/arm64/fetched-v10.4.1-alpine-arm64 -O ~/.pkg-cache/uploaded-v2.5-node-v10.4.1-linux-arm64
 
