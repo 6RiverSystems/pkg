@@ -13,5 +13,5 @@ RUN apk --no-cache add curl tar ca-certificates bluez-dev ruby-dev ruby-rake rub
     gem install  --no-document fpm etc &&\
     apk del ruby-rdoc
 WORKDIR /root/
-COPY --from=0 /.pkg-cache/ /.pkg-cache
+COPY --from=0 /root/.pkg-cache /root/.pkg-cache
 COPY --from=0 /builder/ /builder
